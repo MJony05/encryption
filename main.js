@@ -21,7 +21,7 @@ a.addEventListener("click", function (e) {
 
   if (s) {
     document.querySelector(".result").textContent =
-      "ShifrlanganMath: " + arrNew.join("");
+      "cipherText: " + arrNew.join("");
   } else {
     document.querySelector(".result").textContent = "Nimadir yozing";
   }
@@ -55,7 +55,7 @@ b.addEventListener("click", function () {
   });
   if (aa) {
     document.querySelector(".result").textContent =
-      "DeshifrlanganMath: " + arrl.join("");
+      "decrytionText: " + arrl.join("");
   } else {
     document.querySelector(".result").textContent = "Nimadir yozing";
   }
