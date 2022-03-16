@@ -8,19 +8,45 @@ a.addEventListener("click", function (e) {
   for (let i = 0; i < s.length; i++) {
     arr.push(s.charCodeAt(i).toString(2));
   }
+  let arrNew = [];
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < 7; j++) {
+      if (arr[i][j] == 1) {
+        arrNew.push("$");
+      } else {
+        arrNew.push("#");
+      }
+    }
+  }
+
   if (s) {
     document.querySelector(".result").textContent =
-      "ShifrlanganMath: " + arr.join(",");
+      "ShifrlanganMath: " + arrNew.join("");
   } else {
     document.querySelector(".result").textContent = "Nimadir yozing";
   }
 });
 b.addEventListener("click", function () {
   let aa = document.querySelector(".textBox").value;
-  let arr = aa.split(",");
+  let ar = "";
+
+  for (let i = 1; i <= aa.length; i++) {
+    if (aa[i - 1] == "$") {
+      ar += "1";
+    } else {
+      ar += "0";
+    }
+
+    if (i % 7 == 0) {
+      ar += " ";
+    }
+  }
+  let arr = ar.split(" ");
+  arr.splice(arr.length - 1, 1);
   let arrNum = arr.map(function (val) {
     return Number(val);
   });
+
   let arr10 = arrNum.map(function (val) {
     return parseInt(val, 2);
   });
@@ -30,7 +56,6 @@ b.addEventListener("click", function () {
   if (aa) {
     document.querySelector(".result").textContent =
       "DeshifrlanganMath: " + arrl.join("");
-    console.log(arrl);
   } else {
     document.querySelector(".result").textContent = "Nimadir yozing";
   }
